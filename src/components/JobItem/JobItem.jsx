@@ -11,11 +11,20 @@ const JobItem = ({ job }) => {
 
   return (
     <S.Container onClick={handleOnClick}>
-      <strong>{job.type}</strong>
-      <h2>{job.title}</h2>
-      <img src={job.company_logo} alt={job.company} height="50px" />
-      <a href={job.company_url}>{job.company}</a>
+      <S.Header>
+        <strong>{job.type}</strong>
+        <a href={job.company_url}>
+          <S.CompanyInfo>
+            <img src={job.company_logo} alt={job.company} height="25px" />{" "}
+          </S.CompanyInfo>
+        </a>
+      </S.Header>
+      <h2 style={{ margin: 0 }}>{job.title}</h2>
       <S.Description dangerouslySetInnerHTML={{ __html: job.description }} />
+      <S.Footer>
+        <p>{job.company}</p>
+        <a href={job.company_url}>{job.company_url}</a>
+      </S.Footer>
     </S.Container>
   );
 };

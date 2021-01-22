@@ -6,11 +6,11 @@ const JobList = ({ searchResults }) => {
   return (
     <S.Container>
       <p>JobList</p>
-      <ul style={{ listStyle: "none" }}>
+      <S.List>
         {searchResults.map((job) => (
           <JobItem key={job.id} job={job} />
         ))}
-      </ul>
+      </S.List>
     </S.Container>
   );
 };

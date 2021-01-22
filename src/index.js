@@ -8,11 +8,11 @@ import PrevSearchesContextProvider from "./contexts/PrevSearchesContextProvider"
 
 ReactDOM.render(
   <React.StrictMode>
-    <PrevSearchesContextProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <PrevSearchesContextProvider>
         <App />
-      </BrowserRouter>
-    </PrevSearchesContextProvider>
+      </PrevSearchesContextProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
