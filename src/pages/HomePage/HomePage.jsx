@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import * as S from "./styled";
 import JobList from "../../components/JobList";
+import { PrevSearchesContext } from "../../contexts/PrevSearchesContextProvider";
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState(null);
+  const { prevSearches, setPrevSearches } = useContext(PrevSearchesContext);
 
   const fetchJobs = (search) => {
     const url = `https://us-central1-wands-2017.cloudfunctions.net/githubjobs?description=${search}`;
@@ -14,6 +16,10 @@ const HomePage = () => {
       .then((data) => {
         console.log(data);
         setSearchResults(data);
+        setPrevSearches((prev) => [
+          ...prev,
+          { searchTerm: search, results: data },
+        ]);
       });
   };
 
@@ -23,11 +29,19 @@ const HomePage = () => {
 
     const search = searchTerm.replaceAll(" ", "+");
     console.log(search);
-    fetchJobs(search);
-    setSearchTerm("");
-    const searchTerm = search.replaceAll(" ", "+");
-    console.log(searchTerm);
-    fetchJobs(searchTerm);
+    const prevSearchResults = prevSearches.find(
+      (searchObj) => searchObj.searchTerm === search
+    );
+
+    if (prevSearchResults) {
+      console.log("prev search found");
+
+      console.log(prevSearchResults);
+      setSearchResults(prevSearchResults.results);
+    } else {
+      console.log("no prev search");
+      fetchJobs(search);
+    }
   };
 
   return (
