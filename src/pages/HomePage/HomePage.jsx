@@ -13,7 +13,6 @@ const HomePage = () => {
       <SearchForm />
 
       {searchData && <JobList searchResults={searchData.results} />}
-      {searchData && searchData.results.length === 0 && <p>No jobs found</p>}
     </S.Container>
   );
 };

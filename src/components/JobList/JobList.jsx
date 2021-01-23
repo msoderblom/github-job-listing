@@ -5,12 +5,18 @@ import * as S from "./styled";
 const JobList = ({ searchResults }) => {
   return (
     <S.Container>
-      <p>JobList</p>
-      <S.List>
-        {searchResults.map((job) => (
-          <JobItem key={job.id} job={job} />
-        ))}
-      </S.List>
+      {searchResults.length !== 0 ? (
+        <>
+          <h2>Search results</h2>
+          <S.List>
+            {searchResults.map((job) => (
+              <JobItem key={job.id} job={job} />
+            ))}
+          </S.List>
+        </>
+      ) : (
+        <p>No jobs found</p>
+      )}
     </S.Container>
   );
 };
