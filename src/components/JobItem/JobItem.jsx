@@ -19,10 +19,13 @@ const JobItem = ({ job }) => {
           </S.CompanyInfo>
         </a>
       </S.Header>
-      <h2 style={{ margin: 0 }}>{job.title}</h2>
-      <S.Description dangerouslySetInnerHTML={{ __html: job.description }} />
+      <h2 style={{ margin: 0, color: "#18553c" }}>{job.title}</h2>
+      <S.Description
+        id="description"
+        dangerouslySetInnerHTML={{ __html: job.description }}
+      />
       <S.Footer>
-        <p>{job.company}</p>
+        <span>{job.company}</span>
         <a href={job.company_url}>{job.company_url}</a>
       </S.Footer>
     </S.Container>
