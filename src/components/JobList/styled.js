@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  h2 {
+    color: #fcfbfc;
+  }
+`;
 export const List = styled.ul`
   list-style: none;
   padding: 0;

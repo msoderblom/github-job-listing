@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.li`
   padding: 20px;
   cursor: pointer;
-  background-color: white;
+  background-color: #fcfbfc;
   margin-bottom: 10px;
   border-radius: 10px;
 `;
@@ -12,6 +12,10 @@ export const Header = styled.div`
   /* flex-direction: column; */
 
   justify-content: space-between;
+
+  strong {
+    color: #9fb8aa;
+  }
 `;
 export const CompanyInfo = styled.div`
   display: flex;
@@ -47,8 +51,13 @@ export const Description = styled.div`
 export const Footer = styled.div`
   display: flex;
   align-items: center;
-  p {
+  span {
     margin-right: 5px;
-    font-weight: bold;
+    font-weight: 500;
+    color: rgb(24 85 59);
+  }
+  a {
+    color: black;
+    font-weight: 300;
   }
 `;
