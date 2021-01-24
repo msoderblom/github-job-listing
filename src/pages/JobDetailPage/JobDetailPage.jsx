@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styled";
+import JobItem from "../../components/JobItem";
 
 const JobDetailPage = (props) => {
   const [job, setJob] = useState(null);
@@ -21,15 +22,7 @@ const JobDetailPage = (props) => {
   return (
     <S.Container>
       <p>JobDetailPage</p>
-      {job && (
-        <div>
-          <strong>{job.type}</strong>
-          <h2>{job.title}</h2>
-          <img src={job.company_logo} alt={job.company} height="50px" />
-          <a href={job.company_url}>{job.company}</a>
-          <div dangerouslySetInnerHTML={{ __html: job.description }} />
-        </div>
-      )}
+      {job && <JobItem job={job} details />}
     </S.Container>
   );
 };
