@@ -1,61 +1,81 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.li`
-  padding: 20px;
-  cursor: pointer;
-  background-color: #fcfbfc;
-  margin-bottom: 10px;
-  border-radius: 10px;
+const overlay = css`
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+      to top,
+      rgb(252, 251, 252) 5%,
+      rgba(252, 251, 252, 0) 100%
+    );
+  }
 `;
-export const Header = styled.div`
+
+const titleDots = css`
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export const Container = styled.div`
+  padding: 20px;
+  background-color: #fcfbfc;
+  border-radius: 10px;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+`;
 
-  justify-content: space-between;
-
+export const Header = styled.div`
+  border-bottom: 1px solid black;
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
   strong {
     color: #9fb8aa;
   }
 `;
+
+export const Title = styled.h2`
+  margin: 0;
+  color: #18553c;
+
+  ${({ details }) => !details && titleDots}
+`;
+
 export const CompanyInfo = styled.div`
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
 `;
+
 export const Description = styled.div`
-  max-height: 200px;
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    /* display: block; */
-    width: 5px;
-    height: 5px;
-    border-radius: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: white;
-    border-radius: 5px;
-
-    background: gray;
-    &:hover {
-      background: #565656;
-    }
-  }
-  &::-webkit-scrollbar-track {
-    /* background-color: rgba(255, 255, 255, 0.7); */
-    border-radius: 10%;
-    background-color: lightgray;
-  }
+  ${({ details }) => !details && "max-height: 200px;"}
+  color: black;
+  overflow-y: hidden;
+  position: relative;
+  ${({ details }) => !details && overlay}
 `;
+
 export const Footer = styled.div`
+  flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+
   span {
     margin-right: 5px;
     font-weight: 500;
     color: rgb(24 85 59);
   }
+
   a {
     color: black;
     font-weight: 300;

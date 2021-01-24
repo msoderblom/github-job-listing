@@ -1,26 +1,22 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import * as S from "./styled";
 
-const JobItem = ({ job }) => {
-  const history = useHistory();
-
-  const handleOnClick = () => {
-    history.push(`/jobs/${job.id}`);
-  };
-
+const JobItem = ({ job, details = false }) => {
   return (
-    <S.Container onClick={handleOnClick}>
+    <S.Container>
       <S.Header>
-        <strong>{job.type}</strong>
-        <a href={job.company_url}>
-          <S.CompanyInfo>
+        <div>
+          <strong>{job.type}</strong>
+          <a href={job.company_url}>
             <img src={job.company_logo} alt={job.company} height="25px" />{" "}
-          </S.CompanyInfo>
-        </a>
+          </a>
+        </div>
+        <S.Title details={details}>{job.title}</S.Title>
       </S.Header>
-      <h2 style={{ margin: 0, color: "#18553c" }}>{job.title}</h2>
-      <S.Description dangerouslySetInnerHTML={{ __html: job.description }} />
+      <S.Description
+        dangerouslySetInnerHTML={{ __html: job.description }}
+        details={details}
+      />
       <S.Footer>
         <span>{job.company}</span>
         <a href={job.company_url}>{job.company_url}</a>
