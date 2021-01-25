@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./styled";
+import { MdLocationOn } from "react-icons/md";
 
 const JobItem = ({ job, details = false }) => {
   return (
@@ -12,11 +13,23 @@ const JobItem = ({ job, details = false }) => {
           </a>
         </div>
         <S.Title details={details}>{job.title}</S.Title>
+        {details && (
+          <S.Location>
+            <MdLocationOn /> {job.location}
+          </S.Location>
+        )}
       </S.Header>
       <S.Description
         dangerouslySetInnerHTML={{ __html: job.description }}
         details={details}
       />
+      {details && (
+        <S.HowToApply
+          dangerouslySetInnerHTML={{
+            __html: `<h3>How To Apply</h3>${job.how_to_apply}`,
+          }}
+        />
+      )}
       <S.Footer>
         <span>{job.company}</span>
         <a href={job.company_url}>{job.company_url}</a>

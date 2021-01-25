@@ -26,7 +26,7 @@ const titleDots = css`
 export const Container = styled.div`
   padding: 20px;
   background-color: #fcfbfc;
-  border-radius: 10px;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -44,6 +44,10 @@ export const Header = styled.div`
   }
 `;
 
+export const Location = styled.span`
+  display: flex;
+  align-items: center;
+`;
 export const Title = styled.h2`
   margin: 0;
   color: #18553c;
@@ -62,6 +66,20 @@ export const Description = styled.div`
   overflow-y: hidden;
   position: relative;
   ${({ details }) => !details && overlay}
+
+  p, li {
+    color: rgb(14 44 31);
+    font-weight: 300;
+  }
+`;
+export const HowToApply = styled.div`
+  background-color: #18553c;
+  padding: 5px 10px;
+  color: #fcfbfc;
+  border-radius: 6px;
+  a {
+    color: #fcfbfc;
+  }
 `;
 
 export const Footer = styled.div`
@@ -69,6 +87,7 @@ export const Footer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding-top: 10px;
 
   span {
     margin-right: 5px;
