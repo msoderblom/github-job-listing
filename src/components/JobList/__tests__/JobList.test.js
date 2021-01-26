@@ -43,6 +43,6 @@ describe("Test JobList", () => {
 
   test('Should render "No jobs found" when the the length of searchResults is 0', () => {
     const wrapper = shallow(<JobList searchResults={[]} />);
-    expect(wrapper.find("p").text()).toBe("No jobs found");
+    expect(wrapper.find("h2").text()).toBe("No jobs found");
   });
 });

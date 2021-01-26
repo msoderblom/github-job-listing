@@ -1,4 +1,4 @@
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import JobItem from "../JobItem";
 import * as S from "../styled";
 
@@ -24,7 +24,6 @@ describe("Test that info is rendered in the correct elements", () => {
     wrapper = shallow(<JobItem job={job} />);
   });
 
-  // const wrapper = shallow(<JobItem job={job} />);
   test("Type should be rendered in a strong-element", () => {
     expect(wrapper.find("strong").text()).toBe(job.type);
   });

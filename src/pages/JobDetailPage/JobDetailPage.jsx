@@ -19,12 +19,7 @@ const JobDetailPage = (props) => {
       .then((data) => setJob(data));
   };
 
-  return (
-    <S.Container>
-      <p>JobDetailPage</p>
-      {job && <JobItem job={job} details />}
-    </S.Container>
-  );
+  return <S.Container>{job && <JobItem job={job} details />}</S.Container>;
 };
 
 export default JobDetailPage;

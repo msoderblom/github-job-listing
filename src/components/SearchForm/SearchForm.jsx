@@ -4,7 +4,7 @@ import * as S from "./styled";
 
 const SearchForm = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  // const [searchResults, setSearchResults] = useState(null);
+
   const {
     prevSearches,
     setPrevSearches,
@@ -18,6 +18,7 @@ const SearchForm = () => {
 
       setSearchTerm(term);
     }
+    // eslint-disable-next-line
   }, []);
 
   const fetchJobs = (search) => {
@@ -26,8 +27,6 @@ const SearchForm = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        // setSearchResults(data);
         setSearchData({ searchTerm: search, results: data });
         setPrevSearches((prev) => [
           ...prev,
