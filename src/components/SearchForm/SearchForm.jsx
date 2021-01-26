@@ -41,7 +41,11 @@ const SearchForm = () => {
       setSearchData(null);
       return;
     }
-    const search = searchTerm.replaceAll(" ", "+");
+
+    const search = searchTerm
+      .trim()
+      .replace(/\s{2,}/gm, " ")
+      .replaceAll(" ", "+");
 
     const prevSearchResults = prevSearches.find(
       (searchObj) => searchObj.searchTerm === search
