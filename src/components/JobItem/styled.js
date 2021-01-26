@@ -10,7 +10,7 @@ const overlay = css`
     bottom: 0;
     background-image: linear-gradient(
       to top,
-      rgb(252, 251, 252) 5%,
+      rgb(252, 251, 252) 3%,
       rgba(252, 251, 252, 0) 100%
     );
   }
@@ -23,6 +23,13 @@ const titleDots = css`
   text-overflow: ellipsis;
 `;
 
+const hoverStyles = css`
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
+
 export const Container = styled.div`
   padding: 20px;
   background-color: #fcfbfc;
@@ -31,6 +38,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   min-width: 0;
+  ${({ details }) => !details && hoverStyles}
 `;
 
 export const Header = styled.div`
@@ -47,6 +55,7 @@ export const Header = styled.div`
 export const Location = styled.span`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 `;
 export const Title = styled.h2`
   margin: 0;
@@ -61,7 +70,7 @@ export const CompanyInfo = styled.div`
 `;
 
 export const Description = styled.div`
-  ${({ details }) => !details && "max-height: 200px;"}
+  ${({ details }) => !details && "max-height: 220px;"}
   color: black;
   overflow-y: hidden;
   position: relative;

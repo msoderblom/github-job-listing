@@ -6,6 +6,7 @@ export const Container = styled.div`
 
   & > h2 {
     color: #fcfbfc;
+    text-align: center;
   }
 `;
 export const List = styled.ul`

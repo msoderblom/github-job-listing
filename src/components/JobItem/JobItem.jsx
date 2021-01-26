@@ -4,7 +4,7 @@ import { MdLocationOn } from "react-icons/md";
 
 const JobItem = ({ job, details = false }) => {
   return (
-    <S.Container>
+    <S.Container details={details}>
       <S.Header>
         <div>
           <strong>{job.type}</strong>

@@ -23,7 +23,7 @@ const JobList = ({ searchResults }) => {
           </S.List>
         </>
       ) : (
-        <p>No jobs found</p>
+        <h2>No jobs found</h2>
       )}
     </S.Container>
   );
