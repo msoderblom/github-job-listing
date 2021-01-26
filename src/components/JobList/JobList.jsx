@@ -6,9 +6,6 @@ import * as S from "./styled";
 const JobList = ({ searchResults }) => {
   const history = useHistory();
 
-  // const handleOnClick = () => {
-  //   history.push(`/jobs/${job.id}`);
-  // };
   return (
     <S.Container>
       {searchResults.length !== 0 ? (
