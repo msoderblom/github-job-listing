@@ -12,8 +12,9 @@ const JobDetailPage = (props) => {
 
   const fetchJob = () => {
     const id = props.match.params.id;
-    console.log(id);
+
     const url = `https://us-central1-wands-2017.cloudfunctions.net/githubjobs?id=${id}`;
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => setJob(data));

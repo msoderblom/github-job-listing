@@ -23,7 +23,6 @@ const SearchForm = () => {
 
   const fetchJobs = (search) => {
     const url = `https://us-central1-wands-2017.cloudfunctions.net/githubjobs?description=${search}`;
-    console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -42,22 +41,15 @@ const SearchForm = () => {
       setSearchData(null);
       return;
     }
-
-    console.log(searchTerm);
-
     const search = searchTerm.replaceAll(" ", "+");
-    console.log(search);
+
     const prevSearchResults = prevSearches.find(
       (searchObj) => searchObj.searchTerm === search
     );
 
     if (prevSearchResults) {
-      console.log("prev search found");
-
-      console.log(prevSearchResults);
       setSearchData(prevSearchResults);
     } else {
-      console.log("no prev search");
       fetchJobs(search);
     }
   };
