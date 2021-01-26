@@ -41,6 +41,13 @@ describe("Test JobList", () => {
     expect(wrapper.find("JobItem").length).toBe(searchResults.length);
   });
 
+  test('The amount of jobs found should be displayed after "Search results" in h2', () => {
+    const wrapper = shallow(<JobList searchResults={searchResults} />);
+    expect(wrapper.find("h2").first().text()).toBe(
+      `Search results (${searchResults.length})`
+    );
+  });
+
   test('Should render "No jobs found" when the the length of searchResults is 0', () => {
     const wrapper = shallow(<JobList searchResults={[]} />);
     expect(wrapper.find("h2").text()).toBe("No jobs found");

@@ -10,7 +10,7 @@ const JobList = ({ searchResults }) => {
     <S.Container>
       {searchResults.length !== 0 ? (
         <>
-          <h2>Search results</h2>
+          <h2>Search results ({searchResults.length})</h2>
           <S.List>
             {searchResults.map((job) => (
               <li key={job.id} onClick={() => history.push(`/jobs/${job.id}`)}>
